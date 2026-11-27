@@ -76,7 +76,7 @@ namespace KilatDesk
             {
                 w.Write(Kbps); w.Write(Fps); w.Write(Scale); w.Write(MonitorRequest);
                 w.Write(CodecPref); w.Write((byte)(_canH264 ? 1 : 0));
-                w.Write((byte)(AutoBitrate ? 1 : 0)); w.Write((byte)(Audio ? 1 : 0)); // v2 (ignored by v1 hosts)
+                w.Write((byte)(AutoBitrate ? 1 : 0)); w.Write((byte)(Audio ? 1 : 0)); // extension (ignored by older hosts)
             });
             if (!Audio) StopAudio();
             if (!remember) return;
@@ -116,7 +116,7 @@ namespace KilatDesk
                         int current = br.ReadInt32();
                         var list = new List<MonitorInfo>();
                         byte features = 0;
-                        if (br.BaseStream.Position < br.BaseStream.Length) // v2 host
+                        if (br.BaseStream.Position < br.BaseStream.Length) // newer host with extension
                         {
                             br.ReadInt32(); // extension version
                             features = br.ReadByte();

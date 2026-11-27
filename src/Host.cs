@@ -10,7 +10,7 @@ using System.Threading;
 
 namespace KilatDesk
 {
-    /// <summary>Host feature bits announced to the viewer (v2).</summary>
+    /// <summary>Host feature bits announced to the viewer.</summary>
     internal static class HostFeatures
     {
         public const byte AllMonitors = 1, Files = 2, Chat = 4, Audio = 8, Privacy = 16, AutoBitrate = 32;
@@ -113,7 +113,7 @@ namespace KilatDesk
                 w.Write(mons.Count);
                 foreach (var m in mons) w.Write(m.ToString());
                 w.Write(_monitor);
-                // ---- v2 extension (v1 viewers simply stop reading here)
+                // ---- extension (older viewers simply stop reading here)
                 w.Write(2);
                 w.Write(features);
                 foreach (var m in mons) { w.Write(m.X); w.Write(m.Y); w.Write(m.Width); w.Write(m.Height); w.Write((byte)(m.Primary ? 1 : 0)); }
@@ -165,8 +165,8 @@ namespace KilatDesk
                         int kbps = br.ReadInt32(), fps = br.ReadInt32(), scale = br.ReadInt32(), mon = br.ReadInt32();
                         byte codec = br.ReadByte(); bool h264 = br.ReadByte() != 0;
                         bool auto = false, audio = false;
-                        if (br.BaseStream.Position < br.BaseStream.Length) auto = br.ReadByte() != 0;   // v2
-                        if (br.BaseStream.Position < br.BaseStream.Length) audio = br.ReadByte() != 0;  // v2
+                        if (br.BaseStream.Position < br.BaseStream.Length) auto = br.ReadByte() != 0;   // extension
+                        if (br.BaseStream.Position < br.BaseStream.Length) audio = br.ReadByte() != 0;  // extension
                         kbps = Clamp(kbps, 500, 100000); fps = Clamp(fps, 5, 144); scale = Clamp(scale, 25, 100);
                         int count = _monitors.Count;
                         if (mon == Monitors.All && count < 2) mon = 0;

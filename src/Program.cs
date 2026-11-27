@@ -33,7 +33,7 @@ namespace KilatDesk
             if (args.Length > 1 && args[0] == "--uitest") { UiTest.Run(args[1]); return 0; }
             if (args.Length > 1 && args[0] == "--inputtest") { UiTest.RunInput(args[1]); return 0; }
             bool autoHost = args.Any(a => a.Equals("--host", StringComparison.OrdinalIgnoreCase));
-            string id = "KilatDesk2-" + Environment.UserName; // v2 may run next to v1
+            string id = "KilatDesk-" + Environment.UserName;
             using (var mutex = new Mutex(true, id, out bool first))
             using (var showSignal = new EventWaitHandle(false, EventResetMode.AutoReset, id + "-show"))
             {

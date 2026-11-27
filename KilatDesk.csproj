@@ -15,7 +15,7 @@
     <Optimize>true</Optimize>
     <DebugType>embedded</DebugType>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <Version>2.0.0</Version>
+    <Version>1.0.0</Version>
     <Product>KilatDesk</Product>
     <Description>KilatDesk - remote desktop langsung via IP</Description>
     <GenerateResourceUsePreserializedResources>false</GenerateResourceUsePreserializedResources>

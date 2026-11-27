@@ -54,7 +54,7 @@ namespace KilatDesk
             SuspendLayout(); // same pattern as designer code so WinForms DPI auto-scaling kicks in on ResumeLayout
             AutoScaleDimensions = new SizeF(96f, 96f);
             AutoScaleMode = AutoScaleMode.Dpi;
-            Text = "KilatDesk v2 - Remote Desktop Cepat";
+            Text = "KilatDesk - Remote Desktop Cepat";
             Icon = Ui.AppIcon;
             Font = Ui.Normal;
             ClientSize = new Size(700, 620);

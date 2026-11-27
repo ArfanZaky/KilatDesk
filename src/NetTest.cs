@@ -149,7 +149,7 @@ namespace KilatDesk
             {
                 host.StartListening(port, "Uji-Coba-99", loopbackOnly: true);
 
-                // ---- H.264 session: v2 features + switch through every monitor + all monitors
+                // ---- H.264 session: features + switch through every monitor + all monitors
                 {
                     var vs = new ViewerSession(Secure.Dial("127.0.0.1", port, AppRole.Viewer, "Uji-Coba-99", null))
                     { CodecPref = CodecId.H264, Kbps = 8000, Fps = 60, Scale = 100, AutoBitrate = true, Audio = true, MonitorRequest = 0 };
@@ -159,9 +159,9 @@ namespace KilatDesk
                     WaitUntil(() => vs.FramesTotal > 0 && vs.HasHostStats, 5000);
                     Thread.Sleep(1500);
                     vs.UpdateStats();
-                    P("E2E v2: features=" + vs.Features + " monitors=" + vs.MonitorList.Count + "/" + vs.MonitorNames.Length + " hostStats=" + vs.HasHostStats +
+                    P("E2E fitur: features=" + vs.Features + " monitors=" + vs.MonitorList.Count + "/" + vs.MonitorNames.Length + " hostStats=" + vs.HasHostStats +
                       " auto=" + vs.HostAuto + " (" + vs.HostKbps + " kbps) audio=" + (vs.AudioRate > 0 ? vs.AudioRate + " Hz, " + vs.AudioPackets + " paket" : "belum ada format"));
-                    if (vs.Features == 0 || vs.MonitorList.Count != vs.MonitorNames.Length || !vs.HasHostStats || !vs.HostAuto) { P("   FAIL: v2 handshake data"); fails++; }
+                    if (vs.Features == 0 || vs.MonitorList.Count != vs.MonitorNames.Length || !vs.HasHostStats || !vs.HostAuto) { P("   FAIL: extended handshake data"); fails++; }
 
                     int count = vs.MonitorNames.Length;
                     var order = Enumerable.Range(0, count).ToList();

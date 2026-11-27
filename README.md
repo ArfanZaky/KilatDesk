@@ -1,11 +1,12 @@
-# KilatDesk v2 — Remote Desktop langsung via IP publik
+# KilatDesk — Remote Desktop langsung via IP publik
 
 Aplikasi remote desktop seperti AnyDesk, tapi **koneksinya langsung** dari PC ke PC lewat IP publik kamu —
-tanpa server perantara (relay). Cukup satu file `KilatDesk-v2.exe` yang di-copy ke **2 komputer**.
+tanpa server perantara (relay). Cukup satu file `KilatDesk.exe` (±250 KB) yang di-copy ke **2 komputer**.
+Download di halaman [Releases](../../releases).
 
-**Baru di v2** (detail + hasil tes: [FITUR-BARU-v2.md](FITUR-BARU-v2.md)):
+**Fitur utama:**
 - ganti-ganti monitor lewat tombol `1★ 2 3 Semua` atau `Ctrl+Alt+←/→`, termasuk mode semua monitor;
-- monitor portrait yang diputar sekarang cepat;
+- monitor portrait (diputar) tetap cepat;
 - transfer file dua arah (bisa drag & drop);
 - chat;
 - suara dari PC host;
@@ -107,10 +108,10 @@ dan port forwarding tidak akan bisa — minta IP publik ke ISP, atau pakai *mode
 
 ## Build ulang dari source
 
-Butuh .NET SDK 8 atau lebih baru: jalankan `build.ps1` → hasil `dist\KilatDesk-v2.exe`
-(`dist\KilatDesk.exe` versi 1 tidak disentuh).
+Butuh .NET SDK 8 atau lebih baru: jalankan `build.ps1` → hasil `dist\KilatDesk.exe`
+
 
 Uji komponen di sebuah PC (capture tiap monitor, encoder GPU/CPU, decoder, suara, enkripsi, transfer file,
-streaming loopback dengan pindah-pindah monitor): `KilatDesk-v2.exe --selftest hasil.txt` lalu buka `hasil.txt`.
+streaming loopback dengan pindah-pindah monitor): `KilatDesk.exe --selftest hasil.txt` lalu buka `hasil.txt`.
 
 Pengaturan, log, dan sertifikat tersimpan di `%APPDATA%\KilatDesk`.

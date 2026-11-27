@@ -18,14 +18,14 @@ namespace KilatDesk
         public const byte Ping = 6;         // both  timestamp
         public const byte Pong = 7;         // both  echoed timestamp
         public const byte Ack = 8;          // V->H  frameId fully shown
-        public const byte HostStats = 9;    // H->V  current bitrate, auto flag, host flags (v2)
-        public const byte Chat = 0x0A;      // both  UTF-8 text (v2)
-        public const byte FileOffer = 0x0B; // both  id, name, size (v2)
-        public const byte FileChunk = 0x0C; // both  id, data (v2)
-        public const byte FileEnd = 0x0D;   // both  id, status 0=ok 1=cancel (v2)
-        public const byte AudioFormat = 0x0E; // H->V sample rate, channels (v2)
-        public const byte AudioData = 0x0F; // H->V IMA-ADPCM block (v2)
-        public const byte Privacy = 0x17;   // V->H privacy screen on/off (v2)
+        public const byte HostStats = 9;    // H->V  current bitrate, auto flag, host flags (extended)
+        public const byte Chat = 0x0A;      // both  UTF-8 text (extended)
+        public const byte FileOffer = 0x0B; // both  id, name, size (extended)
+        public const byte FileChunk = 0x0C; // both  id, data (extended)
+        public const byte FileEnd = 0x0D;   // both  id, status 0=ok 1=cancel (extended)
+        public const byte AudioFormat = 0x0E; // H->V sample rate, channels (extended)
+        public const byte AudioData = 0x0F; // H->V IMA-ADPCM block (extended)
+        public const byte Privacy = 0x17;   // V->H privacy screen on/off (extended)
         public const byte MouseMove = 0x10; // V->H  x,y normalized 0..65535
         public const byte MouseButton = 0x11;
         public const byte MouseWheel = 0x12;
